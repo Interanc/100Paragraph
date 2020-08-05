@@ -1,17 +1,25 @@
 require 'listen'
+=begin
+___           _                   _   _
+|_ _|_ __  ___| |_ _ __ _   _  ___| |_(_) ___  _ __  ___
+| || '_ \/ __| __| '__| | | |/ __| __| |/ _ \| '_ \/ __|
+| || | | \__ \ |_| |  | |_| | (__| |_| | (_) | | | \__ \
+|___|_| |_|___/\__|_|   \__,_|\___|\__|_|\___/|_| |_|___/
+
+RUNNING THE .RB
+run bundle install to download all gems (listener, rspec)
+
+cd into the lib folder and ruby the codechallenge.rb file. I couldn't get the listener to properly interact with sleep, so it pulls from the corpus text file that is in the same directory
+
+RUNNING THE TEST
+cd out of lib and run  bundle exec rspec spec to verify the test code in rspec is being cleaned of punctuation and converted to an array.
+
+=end
+
 
 # import the corpus file that is located in the lib folder, clean it of all punctuation and carriage spaces, then convert it to an array.
 file_data = File.read("./lib/corpus.txt").gsub(/[^A-Za-z0-9\s]/i, '').delete!("\r\n\\").split(/ /)
 
-# listener = Listen.to('/Users/jamalmaudibmcdowell/Documents/testcode/codechallenge/lib') do |modified, added, removed|
-#   puts "modified absolute path: #{modified}"
-#   puts "added absolute path: #{added}"
-#   puts "removed absolute path: #{removed}"
-# file_data = File.read("#{added}").gsub(/[^A-Za-z0-9\s]/i, '').delete!("\r\n\\").split(/ /)
-# end
-# listener.only /_spec\.txt$/
-# listener.start
-# sleep
 
 class String
   # Method that strips out punctuation, and converts the sentence into an array.
@@ -57,22 +65,6 @@ puts file_data.paragraph
 
 
 =begin
-___           _                   _   _
-|_ _|_ __  ___| |_ _ __ _   _  ___| |_(_) ___  _ __  ___
-| || '_ \/ __| __| '__| | | |/ __| __| |/ _ \| '_ \/ __|
-| || | | \__ \ |_| |  | |_| | (__| |_| | (_) | | | \__ \
-|___|_| |_|___/\__|_|   \__,_|\___|\__|_|\___/|_| |_|___/
-
-RUNNING THE .RB
-run bundle install to download all gems (listener, rspec)
-
-cd into the lib folder and ruby the codechallenge.rb file. I couldn't get the listener to properly interact with sleep, so it pulls from the corpus text file that is in the same directory
-
-RUNNING THE TEST
-
-cd out of lib and run  bundle exec rspec spec to verify the test code in rspec is being cleaned of punctuation and converted to an array.
-
-
  ____
 |  _ \ _ __ ___   ___ ___  ___ ___
 | |_) | '__/ _ \ / __/ _ \/ __/ __|
@@ -86,13 +78,11 @@ I assumed that in this test you would want a clean paragraph with no duplicate w
 2. Take the array and make it into a random 10 word sentence with proper punctuation.
 3. Create a paragraph method that calls the sentence method 10 times to create a paragraph.
 4. Clean up the sentence method to make it not duplicate or print out the already removed duplicate values.
-5. Join the paragraph array together into a string
+5. Join the paragraph array together into a string and puts it to the command terminal
 
 Cannot get the listener to work, but my steps for trying to get it to work were to
 
 1. Have a listener that detects when someone puts a file in the lib folder, then update the file data variable.
 2. Run the updated file data through my method to create a new paragraph.
 3. output the paragraph to the command line, then delete the file.
-
-
 =end
