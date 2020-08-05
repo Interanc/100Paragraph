@@ -19,7 +19,7 @@ cd out of lib and run  bundle exec rspec spec to verify the test code in rspec i
 
 
 # import the corpus file that is located in the lib folder, clean it of all punctuation and carriage spaces, then convert it to an array.
-file_data = File.read("./lib/corpus.txt").gsub(/[^A-Za-z0-9\s]/i, '').delete!("\r\n\\").split(/ /)
+file_data = File.read("./corpus.txt").gsub(/[^A-Za-z0-9\s]/i, '').delete!("\r\n\\").split(/ /)
 
 
 class String
