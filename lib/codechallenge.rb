@@ -9,7 +9,8 @@ ___           _                   _   _
 RUNNING THE .RB
 run bundle install to download all gems (listener, rspec)
 
-cd into the lib folder and ruby the codechallenge.rb file. I couldn't get the listener to properly interact with sleep, so it pulls from the corpus text file that is in the same directory
+cd into the lib folder and ruby the codechallenge.rb file.
+I couldn't get the listener to properly interact with sleep, so it pulls from the corpus text file that is in the same directory.
 
 RUNNING THE TEST
 cd out of lib and run  bundle exec rspec spec to verify the test code in rspec is being cleaned of punctuation and converted to an array.
@@ -85,4 +86,6 @@ Cannot get the listener to work, but my steps for trying to get it to work were 
 1. Have a listener that detects when someone puts a file in the lib folder, then update the file data variable.
 2. Run the updated file data through my method to create a new paragraph.
 3. output the paragraph to the command line, then delete the file.
+
+Slight problem with formatting with \r\n. gsub removes the space entirely which throws off the formatting of words.
 =end
