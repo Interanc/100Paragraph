@@ -13,7 +13,7 @@ cd into the lib folder and ruby the codechallenge.rb file.
 I couldn't get the listener to properly interact with sleep, so it pulls from the corpus text file that is in the same directory.
 
 RUNNING THE TEST
-cd out of lib and run  bundle exec rspec spec to verify the test code in rspec is being cleaned of punctuation and converted to an array.
+cd out of lib and run  bundle exec rspec to verify the test code in rspec is being cleaned of punctuation and converted to an array.
 
 =end
 
@@ -23,7 +23,7 @@ file_data = File.read("./corpus.txt").gsub(/[^A-Za-z0-9\s]/i, '').delete!("\r\n\
 
 
 class String
-  # Method that strips out punctuation, and converts the sentence into an array.
+  # Unit test for method that strips out punctuation, and converts the sentence into an array.
   def strip
      self.gsub(/[^A-Za-z0-9\s]/i, '').tr("\n","").split(/ /)
   end
